@@ -3,6 +3,7 @@
 
 ## Project environment
 ```
+docker-compose build && docker-compose up -d && docker-compose logs -f
 docker-compose up
 ```
 
@@ -14,6 +15,7 @@ docker-compose up
 
 ## Connecting to docker shell
 ```
+
 docker-compose exec web bash
 ```
 

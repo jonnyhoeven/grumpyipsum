@@ -1,7 +1,7 @@
 <template>
     <div class="headerContainer hand" v-on:click="fetchSentenceDetail">
         <div class="repeatBackground">
-            <img alt="Un-impressed grumpy on a beach with a speech balloon"
+            <img alt="Unimpressed grumpy cat on a beach with a speech balloon"
                  width="365" height="365" src="../assets/im-not-impressed.jpg">
 
             <transition name="fade">
@@ -10,7 +10,7 @@
                     <h1>{{ sentence.text }}</h1>
                 </div>
             </transition>
-
+            <div class="logo">Grumpy ipsum.com</div>
         </div>
     </div>
 </template>
@@ -40,6 +40,14 @@
 </script>
 
 <style scoped>
+
+    .logo {
+        position: relative;
+        font-family: 'Indie Flower', cursive;
+        right: -10pt;
+        font-size:30pt;
+    }
+
     .repeatBackground {
         background-image: url("../assets/im-not-impressed-repeat.jpg");
         width: 100%;

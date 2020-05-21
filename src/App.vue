@@ -17,7 +17,7 @@
             <router-link to="/about">Jonny van der Hoeven</router-link>
             <span>-</span>
             <router-link to="/">Grumpy Ipsum</router-link>
-            <span>{{ currentYear }}</span>
+            <span>&copy; {{ currentYear }}</span>
         </div>
     </div>
 </template>
@@ -62,9 +62,9 @@
         background: #f9f9f9 repeating-linear-gradient(
                 to right,
                 #f6bb4e,
-                #f6bb4e 10px,
-                #ffd180 10px,
-                #ffd180 20px
+                #f6bb4e 10pt,
+                #ffd180 10pt,
+                #ffd180 20pt
         );
     }
 
@@ -101,7 +101,7 @@
     }
 
     blockquote {
-        border-left: 1px solid #ccc;
+        border-left: 1pt solid #ccc;
     }
 
 
@@ -160,30 +160,27 @@
 
     .footer > a {
         text-decoration: none;
-        text-shadow: 0 0 2px rgba(45, 45, 45, 0.4);
-        color: #fdf9f1;
+        text-shadow: 0 0 6pt rgba(45, 45, 45, 0.4);
+        color: #000000;
     }
 
     .footer > a:hover {
-        text-shadow: 0 0 2px rgba(168, 168, 168, 0.4);
+        text-shadow: 0 0 2pt rgba(168, 168, 168, 0.4);
     }
 
-    .footer > span {
-        text-shadow: 0 0 2px rgba(45, 45, 45, 0.4);
-        color: #fdf9f1;
-    }
 
     .footer > span {
-        text-shadow: 0 0 2px rgba(45, 45, 45, 0.4);
+        text-shadow: 0 0 2pt rgba(45, 45, 45, 0.4);
         margin-left: 3pt;
         margin-right: 3pt;
+        color: #000000;
     }
 
     .formContainer input, select, textarea, button {
         margin-top: 2pt;
         margin-bottom: 7pt;
-        border: 1px solid #ccc;
-        border-radius: 3px;
+        border: 1pt solid #ccc;
+        border-radius: 3pt;
     }
 
     .formContainer input, select, button {
@@ -192,7 +189,7 @@
 
     .labelContainer div {
         text-align: right;
-        height: 20px;
+        height: 20pt;
         margin-top: 4pt;
         margin-right: 3pt;
     }
@@ -211,8 +208,8 @@
 
     .well {
         background-color: rgba(255, 255, 255, 0.8);
-        box-shadow: 1px 1px 3px #0a0a0a66;
-        border-radius: 8px;
+        box-shadow: 1pt 1pt 3pt #0a0a0a66;
+        border-radius: 8pt;
         padding: 15pt;
     }
 

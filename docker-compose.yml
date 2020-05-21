@@ -1,15 +1,39 @@
 version: '2'
 services:
   web:
-    build: docker/web
+    build:
+      context: 'docker/web'
+      args:
+        uid: ${UID}
+        webhost: ${WEBHOST}
+    container_name: web
+    environment:
+      - APACHE_RUN_USER=#${UID}
+      - APACHE_RUN_GROUP=#${UID}
     ports:
       - "80:80"
       - "443:443"
     volumes:
       - .:/var/www/
+    networks:
+      backend:
+        aliases:
+          - web
   sql:
-      build: docker/sql
+      image: mysql:5.7
+      container_name: sql
+      environment:
+        - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+        - MYSQL_DATABASE=${MYSQL_DATABASE}
+        - MYSQL_USER=${MYSQL_USER}
+        - MYSQL_PASSWORD=${MYSQL_USER}
       ports:
         - "3306:3306"
       volumes:
-        - ./docker/sql/data:/var/lib/mysql-57
+        - ./run/var:/var/lib/mysql
+      networks:
+        backend:
+          aliases:
+            - sql
+networks:
+  backend:

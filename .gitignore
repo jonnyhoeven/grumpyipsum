@@ -1,8 +1,12 @@
-node_modules
-vendor/
-html/dist
+/node_modules
+/vendor
 
-# local env files
+.phpunit.result.cache
+html/dist
+run/var
+
+# env files
+.env
 .env.local
 .env.*.local
 
@@ -18,3 +22,4 @@ logs/*
 *.ntvs*
 *.njsproj
 *.sln
+

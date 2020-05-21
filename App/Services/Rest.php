@@ -5,9 +5,12 @@
  * Date: 29/03/2019
  * Time: 21:01
  */
-
 namespace App\Services;
 
+use Delight\Auth\EmailNotVerifiedException;
+use Delight\Auth\InvalidEmailException;
+use Delight\Auth\InvalidPasswordException;
+use Delight\Auth\TooManyRequestsException;
 use Illuminate\Database\Capsule\Manager as DB;
 use Delight\Auth\Auth;
 use App\Models\Sentence;
@@ -180,25 +183,24 @@ class Rest
         $authEmail = Helper::xssafe($this->request->authEmail);
         $password = Helper::xssafe($this->request->password);
         // $ip = Helper::getClientRequestIP();
-
         // $userId = $this->auth->admin()->createUser('jonnyhoeven@gmail.com','test', 'test');
 
 
         try {
             $this->auth->login($authEmail, $password);
-        } catch (\Delight\Auth\InvalidEmailException $e) {
+        } catch (InvalidEmailException $e) {
             $ret->result = false;
             $ret->message = 'Wrong email address';
             return $ret;
-        } catch (\Delight\Auth\InvalidPasswordException $e) {
+        } catch (InvalidPasswordException $e) {
             $ret->result = false;
             $ret->message = 'Wrong password';
             return $ret;
-        } catch (\Delight\Auth\EmailNotVerifiedException $e) {
+        } catch (EmailNotVerifiedException $e) {
             $ret->result = false;
             $ret->message = 'Email not verified';
             return $ret;
-        } catch (\Delight\Auth\TooManyRequestsException $e) {
+        } catch (TooManyRequestsException $e) {
             $ret->result = false;
             $ret->message = 'Too many requests';
             return $ret;
@@ -258,11 +260,11 @@ class Rest
 
         try {
             $this->auth->register($authEmail, $password, $username);
-        } catch (\Delight\Auth\InvalidEmailException $e) {
+        } catch (InvalidEmailException $e) {
             $ret->result = false;
             $ret->message = 'Invalid email address';
             return $ret;
-        } catch (\Delight\Auth\InvalidPasswordException $e) {
+        } catch (InvalidPasswordException $e) {
 
             $ret->message = 'Invalid password';
             return $ret;
@@ -271,7 +273,7 @@ class Rest
             $ret->result = false;
             $ret->message = 'User already exists';
             return $ret;
-        } catch (\Delight\Auth\TooManyRequestsException $e) {
+        } catch (TooManyRequestsException $e) {
             $ret->result = false;
             $ret->message = 'Too many requests';
             return $ret;
