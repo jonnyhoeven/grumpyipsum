@@ -1,5 +1,5 @@
 # Grumpyipsum
-
+#### The negative Lorem Ipsum
 
 ## Project environment
 ```
@@ -9,7 +9,6 @@ docker-compose up
 ## Hostnames
 ```
 127.0.0.1 www.grumpyipsum.com
-127.0.0.1 rest.grumpyipsum.com
 ```
 
 

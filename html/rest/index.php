@@ -6,9 +6,12 @@
  * Time: 20:57
  */
 
-require_once '../../vendor/autoload.php';
+require_once __DIR__.'/../../vendor/autoload.php';
+
 $rest_json = file_get_contents('php://input');
 $inputData = json_decode($rest_json, true);
+
+//$rest = new App\Services\Rest($inputData);
 
 
 $origin = $_SERVER['HTTP_ORIGIN'];
@@ -17,6 +20,7 @@ $allowed_domains = [
     'https://www.grumpyipsum.com',
     'http://www.grumpyipsum.com:8080',
 ];
+
 
 if (in_array($origin, $allowed_domains, true)) {
     header('Access-Control-Allow-Origin: ' . $origin);

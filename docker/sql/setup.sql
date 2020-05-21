@@ -6,18 +6,13 @@ GRANT ALL PRIVILEGES ON * . * TO root@'172.%';
 CREATE USER root@'192.%' IDENTIFIED BY 'docker';
 GRANT ALL PRIVILEGES ON * . * TO root@'192.%';
 
-CREATE USER phpstorm@'172.%' IDENTIFIED BY 'phpstorm';
-GRANT ALL PRIVILEGES ON * . * TO phpstorm@'172.%';
-
 CREATE USER apache@'172.%' IDENTIFIED BY 'apache';
 GRANT ALL PRIVILEGES ON grumpyipsum. * TO apache@'172.%';
-
-CREATE USER cli@'172.%' IDENTIFIED BY 'cli';
-GRANT ALL PRIVILEGES ON * . * TO cli@'172.%';
 
 FLUSH PRIVILEGES;
 
 create schema grumpyipsum collate latin1_swedish_ci;
+USE grumpyipsum;
 
 CREATE TABLE IF NOT EXISTS  `sentences` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -30,13 +25,14 @@ CREATE TABLE IF NOT EXISTS  `sentences` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1 COMMENT='Grumpy Sentences'
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1 COMMENT='Grumpy Sentences';
 
 CREATE TABLE IF NOT EXISTS  `votes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sentence_id` int(11) DEFAULT NULL,
   `rating` int(11) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NOW(),
   `ip` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `votes_sentences_id_fk` (`sentence_id`),
