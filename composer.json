@@ -8,7 +8,7 @@
     "roave/security-advisories": "dev-master"
   },
     "require": {
-      "illuminate/database": "^5.8",
+      "illuminate/database": "^6.20",
       "ext-json": "*",
       "delight-im/auth": "^8.1"
     }
