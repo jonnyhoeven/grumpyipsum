@@ -1,3 +1,5 @@
+Grumpy Ipsum is a crowd-sourced negative Lorem Ipsum generator. The project is a work in progress and is not yet ready for users. 
+
 ## Project environment
 ```
 docker-compose build && docker-compose up -d && docker-compose logs -f
