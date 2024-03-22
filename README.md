@@ -1,6 +1,3 @@
-# Grumpyipsum
-#### The negative Lorem Ipsum
-
 ## Project environment
 ```
 docker-compose build && docker-compose up -d && docker-compose logs -f
